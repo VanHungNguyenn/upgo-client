@@ -1,25 +1,31 @@
 import { useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { Routes, Route } from 'react-router-dom'
-import { getUser } from '~/redux/toolkits/authSlice'
-import { useDispatch } from 'react-redux'
+import { getUser, getToken } from '~/redux/toolkits/authSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { privateRoutes } from '~/routes'
 
-import RequireAuth from '~/routes/RequireAuth' // 0: admin, 1: seller, 2: user
+import PrivateRoute from './routes/PrivateRoute'
+import PublicRoute from './routes/PublicRoute'
 import DefaultLayout from '~/components/DefaultLayout'
 
 import Login from '~/pages/Login'
 import Register from '~/pages/Register'
-import Dashboard from '~/pages/Dashboard'
-// import ListKeys from '~/pages/ListKeys'
-// import ListMembers from '~/pages/ListMembers'
-// import AddKey from '~/pages/AddKey'
-// import AddMember from '~/pages/AddMember'
 
 import Page404 from '~/pages/Page404'
 
 function App() {
 	const dispatch = useDispatch()
 	const isLogin = !!localStorage.getItem('token')
+	const { isLogged, role } = useSelector((state) => state.auth)
+
+	const getTokenUser = useCallback(() => {
+		const token = localStorage.getItem('token')
+
+		if (token) {
+			dispatch(getToken(token))
+		}
+	}, [dispatch])
 
 	const getInforUser = useCallback(async () => {
 		try {
@@ -29,8 +35,7 @@ function App() {
 				},
 			})
 
-			const token = localStorage.getItem('token')
-			dispatch(getUser({ token, ...res.data }))
+			dispatch(getUser(res.data.user))
 		} catch (error) {
 			console.log(error.message)
 		}
@@ -38,23 +43,53 @@ function App() {
 
 	useEffect(() => {
 		if (isLogin) {
+			getTokenUser()
+		}
+	}, [isLogin, getTokenUser])
+
+	useEffect(() => {
+		if (isLogged && !role) {
 			getInforUser()
 		}
-	}, [isLogin, getInforUser])
+	}, [isLogged, getInforUser, role])
 
 	return (
 		<div className='App'>
 			<Routes>
-				{/* public routes */}
-				<Route path='login' element={<Login />} />
-				<Route path='register' element={<Register />} />
-
 				{/* private routes */}
-				<Route element={<RequireAuth allowed={[0, 1]} />}>
-					<Route path='/' element={<DefaultLayout />}>
-						<Route path='/' element={<Dashboard />} />
-					</Route>
+				<Route path='/' element={<DefaultLayout />}>
+					{privateRoutes.map((route, i) => (
+						<Route
+							key={i}
+							path={route.path}
+							element={
+								<PrivateRoute
+									roles={route.roles ? route.roles : []}
+								>
+									{route.main}
+								</PrivateRoute>
+							}
+						/>
+					))}
 				</Route>
+
+				{/* public routes */}
+				<Route
+					path='login'
+					element={
+						<PublicRoute>
+							<Login />
+						</PublicRoute>
+					}
+				/>
+				<Route
+					path='register'
+					element={
+						<PublicRoute>
+							<Register />
+						</PublicRoute>
+					}
+				/>
 
 				{/* 404 */}
 				<Route path='*' element={<Page404 />} />

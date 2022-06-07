@@ -4,3 +4,7 @@
 a, a:hover {
     color: var(--primary-color);
 }
+
+.content {
+    min-height: 50vh;
+}
