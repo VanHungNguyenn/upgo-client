@@ -10,6 +10,7 @@ import Recharge from '~/pages/Recharge'
 import Manage from '~/pages/Manage'
 import History from '~/pages/History'
 import Shop from '~/pages/Shop'
+import Contact from '~/pages/Contact'
 
 const privateRoutes = [
 	{
@@ -40,6 +41,11 @@ const privateRoutes = [
 	{
 		path: '/shop',
 		main: <Shop />,
+		roles: ['admin', 'user', 'seller'],
+	},
+	{
+		path: '/contact',
+		main: <Contact />,
 		roles: ['admin', 'user', 'seller'],
 	},
 	{
