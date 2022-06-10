@@ -9,15 +9,15 @@ import MemberForm from '../../components/MemberForm'
 
 const initialState = {
 	name: '',
-	fullname: '',
+	email: '',
 	password: '',
 	note: '',
-	role: 1,
+	role: 2,
 }
 
 const AddMember = () => {
 	const [inforForm, setInforForm] = useState(initialState)
-	const { name, fullname, password, note, role } = inforForm
+	const { name, email, password, note, role } = inforForm
 
 	const navigate = useNavigate()
 
@@ -34,7 +34,7 @@ const AddMember = () => {
 				'/user/create',
 				{
 					name,
-					fullname,
+					email,
 					password,
 					note,
 					role,
@@ -44,7 +44,7 @@ const AddMember = () => {
 
 			if (res.status === 200) {
 				showSuccessMessage('Add member success')
-				navigate('/list-members')
+				navigate('/members')
 			}
 		} catch (error) {
 			error.response.data.message &&
@@ -55,7 +55,7 @@ const AddMember = () => {
 	return (
 		<MemberForm
 			name={name}
-			fullname={fullname}
+			email={email}
 			password={password}
 			note={note}
 			role={role}

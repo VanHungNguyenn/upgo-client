@@ -2,7 +2,7 @@ import React from 'react'
 
 const MemberForm = ({
 	name,
-	fullname,
+	email,
 	password,
 	note,
 	role,
@@ -36,16 +36,14 @@ const MemberForm = ({
 								</div>
 								<div className='col-md-6 mb-3'>
 									<div>
-										<label htmlFor='fullname'>
-											Fullname
-										</label>
+										<label htmlFor='email'>Email</label>
 										<input
 											className='form-control'
-											id='fullname'
-											type='text'
-											placeholder='Enter fullname...'
-											name='fullname'
-											value={fullname}
+											id='email'
+											type='email'
+											placeholder='Enter email...'
+											name='email'
+											value={email}
 											onChange={handleChangeInput}
 											required
 										/>
@@ -80,6 +78,7 @@ const MemberForm = ({
 										value={role}
 										onChange={handleChangeInput}
 									>
+										<option value='2'>User</option>
 										<option value='1'>Seller</option>
 										<option value='0'>Admin</option>
 									</select>

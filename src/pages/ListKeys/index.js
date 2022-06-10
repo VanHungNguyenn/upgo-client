@@ -1,11 +1,10 @@
 import axios from 'axios'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Table } from 'antd'
-import { getKeys } from '../../redux/toolkits/keySlice'
+import { Table, Button, Divider, Tag } from 'antd'
+import { getKeys } from '~/redux/toolkits/keySlice'
 import { Link } from 'react-router-dom'
-import { currencyComma, formatDay } from '../../utils'
-import { Button, Divider, Tag } from 'antd'
+import { currencyComma, formatDay } from '~/utils'
 import Swal from 'sweetalert2'
 
 const ListKeys = () => {
@@ -13,6 +12,8 @@ const ListKeys = () => {
 	const [data, setData] = useState([])
 	const [search, setSearch] = useState('')
 	const [dataSource, setDataSource] = useState([])
+
+	console.log(data)
 
 	const fetchKeys = useCallback(async () => {
 		try {
@@ -22,9 +23,9 @@ const ListKeys = () => {
 				},
 			})
 
-			setData(res.data.keys)
-			setDataSource(res.data.keys)
-			dispatch(getKeys(res.data.keys))
+			setData(res.data.data)
+			setDataSource(res.data.data)
+			dispatch(getKeys(res.data.data))
 		} catch (error) {
 			console.log(error.message)
 		}
@@ -104,11 +105,9 @@ const ListKeys = () => {
 			key: 'seller',
 		},
 		{
-			title: 'Price',
-			dataIndex: 'price',
-			key: 'price',
-			render: (price) => <span>{currencyComma(price)} VND</span>,
-			sorter: (a, b) => a.price - b.price,
+			title: 'Product Name',
+			dataIndex: 'nameProduct',
+			key: 'nameProduct',
 		},
 		{
 			title: 'Key',
@@ -116,13 +115,14 @@ const ListKeys = () => {
 			key: 'key',
 		},
 		{
-			title: 'Create Date',
-			dataIndex: 'createdAt',
-			key: 'createdAt',
-			render: (createdAt) => <span>{formatDay(createdAt)}</span>,
+			title: 'Price',
+			dataIndex: 'price',
+			key: 'price',
+			render: (price) => <span>{currencyComma(price)} VND</span>,
+			sorter: (a, b) => a.price - b.price,
 		},
 		{
-			title: 'Expired',
+			title: 'Expired Date',
 			dataIndex: 'expired',
 			key: 'expired',
 			render: (expired) => <span>{formatDay(expired)}</span>,

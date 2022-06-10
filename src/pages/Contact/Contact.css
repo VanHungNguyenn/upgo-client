@@ -2,14 +2,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .contact__item {
-    width: calc(25% - 1rem);
+    width: calc(25% - .5rem);
     border-radius: 0.5rem;
-    border: 2px solid var(--bs-primary);
+    border: 2px solid #ccc;
     padding: 1rem;
     background-color: #e8eef1;
+    margin-bottom: 1rem;
 
     display: flex;
     flex-direction: column;
@@ -19,13 +21,29 @@
     cursor: pointer;
 }
 
+.contact__item:hover {
+    border: 2px solid var(--bs-primary);
+}
+
 .contact__item i {
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--bs-primary);
 
     margin-bottom: 2rem;
 }
 
 .contact__item-tile {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .contact__item {
+        width: calc(50% - .5rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact__item {
+        width: 100%;
+    }
 }

@@ -1,11 +1,9 @@
-import './Recharge.css'
+import './Topup.css'
 import { techcombank, momo } from '~/constants/images'
 import { useSelector } from 'react-redux'
 
-const Recharge = () => {
+const Topup = () => {
 	const { username } = useSelector((state) => state.auth)
-
-	console.log({ username })
 
 	return (
 		<>
@@ -44,7 +42,7 @@ const Recharge = () => {
 								Content:
 							</div>
 							<div className='recharge__info-item__content-value'>
-								Upgo {username}
+								Upgo {username.name}
 							</div>
 						</div>
 					</div>
@@ -81,42 +79,42 @@ const Recharge = () => {
 								Content:
 							</div>
 							<div className='recharge__info-item__content-value'>
-								Upgo {username}
+								Upgo {username.name}
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div className='recharge__tutorial card'>
-					{/* title */}
-					<div className='recharge__tutorial-title'>
+				<div className='custom__card'>
+					<div className='custom__card-header'>
+						{/* fontawesome money */}
+						<i className='fas fa-money-bill-wave'></i>
 						Hướng dẫn nạp tiền
 					</div>
-					{/* content */}
-					<div className='recharge__tutorial-content'>
-						<div className='recharge__tutorial-content-item'>
-							<span>Bước 1:</span> Mở app ngân hàng, website ngân
-							hàng hoặc ví Momo để thực hiện chuyển tiền.
-						</div>
-						<div className='recharge__tutorial-content-item'>
-							<span>Bước 2:</span> Nhập chính xác số tài khoản, số
-							tiền cần nạp.
-						</div>
-						<div className='recharge__tutorial-content-item'>
-							<span>Bước 3:</span> Nhập chính xác nội dung chuyển
-							tiền như yêu cầu. (Ví dụ: Upgo nguyenvana)
-						</div>
-						<div className='recharge__tutorial-content-item'>
-							<span>Bước 4:</span> Thực hiện chuyển tiền.
-						</div>
-						<div className='recharge__tutorial-content-item'>
-							<span>Bước 5:</span> Sau khi kiểm tra, hệ thống sẽ
-							xác nhận và cộng tiền vào tài khoản cho quý khách.
-						</div>
-						<div className='recharge__tutorial-content-item'>
-							<span>Bước 6:</span> Sau 5p, nếu chưa thấy tài khoản
-							được cập nhật, vui lòng liên hệ hỗ trợ để được giải
-							quyết.
+					<div className='custom__card-body'>
+						<div className='recharge__tutorial-content'>
+							<div className='recharge__tutorial-content-item'>
+								Mở app ngân hàng, website ngân hàng hoặc ví Momo
+								để thực hiện chuyển tiền.
+							</div>
+							<div className='recharge__tutorial-content-item'>
+								Nhập chính xác số tài khoản, số tiền cần nạp.
+							</div>
+							<div className='recharge__tutorial-content-item'>
+								Nhập chính xác nội dung chuyển tiền như yêu cầu.
+								(Ví dụ: Upgo nguyenvana)
+							</div>
+							<div className='recharge__tutorial-content-item'>
+								Thực hiện chuyển tiền.
+							</div>
+							<div className='recharge__tutorial-content-item'>
+								Sau khi kiểm tra, hệ thống sẽ xác nhận và cộng
+								tiền vào tài khoản cho quý khách.
+							</div>
+							<div className='recharge__tutorial-content-item'>
+								Sau 5p, nếu chưa thấy tài khoản được cập nhật,
+								vui lòng liên hệ hỗ trợ để được giải quyết.
+							</div>
 						</div>
 					</div>
 				</div>
@@ -125,4 +123,4 @@ const Recharge = () => {
 	)
 }
 
-export default Recharge
+export default Topup

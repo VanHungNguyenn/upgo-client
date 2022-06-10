@@ -1,0 +1,159 @@
+.dashboard {
+    font-size: 1rem;
+}
+
+.dashboard__card {
+    margin-bottom: 1rem;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 1rem;
+}
+
+.dashboard__intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.dashboard__intro-img, .dashboard__intro-content {
+    width: calc(50% - 1rem);
+}
+
+.dashboard__intro-img {
+    max-width: 20rem;
+    width: 100%;
+}
+
+.dashboard__intro-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard__intro-content-item {
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #eaeaea;
+    padding: 1.5rem;
+    font-size: 1rem;
+
+    border-left: 5px solid #ffa400;
+}
+
+.dashboard__intro-content-item:nth-child(6n + 1) {
+    border-left: 5px solid #00aefd;
+}
+
+.dashboard__intro-content-item:nth-child(6n + 2) {
+    border-left: 5px solid #ffa400;
+}
+
+.dashboard__intro-content-item:nth-child(6n + 3) {
+    border-left: 5px solid #9c2261;
+}
+
+.dashboard__intro-content-item:nth-child(6n + 4) {
+    border-left: 5px solid #2fb63c;
+}
+
+.dashboard__intro-content-item:nth-child(6n + 5) {
+    border-left: 5px solid #f00;
+}
+
+.dashboard__intro-content-item:nth-child(6n + 6) {
+    border-left: 5px solid #ff7870;
+}
+
+.dashboard__intro-content-item:last-child {
+    margin-bottom: 0;
+}
+
+.dashboard__noti {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard__noti-item {
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #eaeaea;
+    padding: 1.5rem;
+    font-size: 1rem;
+}
+
+.dashboard__noti-item:nth-child(6n + 1) {
+    border-left: 5px solid #00aefd;
+}
+
+.dashboard__noti-item:nth-child(6n + 2) {
+    border-left: 5px solid #ffa400;
+}
+
+.dashboard__noti-item:nth-child(6n + 3) {
+    border-left: 5px solid #9c2261;
+}
+
+.dashboard__noti-item:nth-child(6n + 4) {
+    border-left: 5px solid #2fb63c;
+}
+
+.dashboard__noti-item:nth-child(6n + 5) {
+    border-left: 5px solid #f00;
+}
+
+.dashboard__noti-item:last-child {
+    margin-bottom: 0;
+}
+
+.dashboard__policy-bullet {
+    margin-bottom: .5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.dashboard__policy-list {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard__policy-item {
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 2;
+    font-size: 1rem;
+}
+
+.dashboard__policy-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: #ffa400;
+}
+
+.dashboard__policy-item:nth-child(6n + 1)::before {
+    background-color: #00aefd;
+}
+
+.dashboard__policy-item:nth-child(6n + 2)::before {
+    background-color: #ff7870;
+}
+
+.dashboard__policy-item:nth-child(6n + 3)::before {
+    background-color: #9c2261;
+}
+
+.dashboard__policy-item:nth-child(6n + 4)::before {
+    background-color: #2fb63c;
+}
+
+.dashboard__policy-item:nth-child(6n + 5)::before {
+    background-color: #f00;
+}
+
+.dashboard__policy-item:nth-child(6n + 6)::before {
+    background-color: #ffa400;
+}

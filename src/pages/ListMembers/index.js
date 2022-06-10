@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux'
 import { Table } from 'antd'
 
 import { Link } from 'react-router-dom'
-import { currencyComma, formatDay } from '../../utils'
+import { currencyComma } from '~/utils'
 import { Button, Divider, Tag } from 'antd'
 import Swal from 'sweetalert2'
-import { getMembers } from '../../redux/toolkits/memberSlice'
+import { getMembers } from '~/redux/toolkits/memberSlice'
 
 const ListMembers = () => {
 	const dispatch = useDispatch()
@@ -17,7 +17,7 @@ const ListMembers = () => {
 
 	const fetchMembers = useCallback(async () => {
 		try {
-			const res = await axios.get('/user/all_infor', {
+			const res = await axios.get('/user/all', {
 				headers: {
 					Authorization: localStorage.getItem('token'),
 				},
@@ -42,12 +42,12 @@ const ListMembers = () => {
 			setDataSource(data)
 		} else {
 			const newData = data.filter((item) => {
-				// search with name, fullname, note
+				// search with name, email, note
 				return (
 					item.name
 						.toLowerCase()
 						.includes(e.target.value.toLowerCase()) ||
-					item.fullname
+					item.email
 						.toLowerCase()
 						.includes(e.target.value.toLowerCase()) ||
 					item.note
@@ -101,21 +101,23 @@ const ListMembers = () => {
 			key: 'name',
 		},
 		{
-			title: 'Fullname',
-			dataIndex: 'fullname',
-			key: 'fullname',
+			title: 'Balance',
+			dataIndex: 'balance',
+			key: 'balance',
+			render: (balance) => <span>{currencyComma(balance)} VND</span>,
 		},
 		{
 			title: 'Total',
-			dataIndex: 'total',
-			key: 'total',
-			render: (total) => <span>{currencyComma(total)} VND</span>,
+			dataIndex: 'totalDeposit',
+			key: 'totalDeposit',
+			render: (totalDeposit) => (
+				<span>{currencyComma(totalDeposit)} VND</span>
+			),
 		},
 		{
-			title: 'Create day',
-			dataIndex: 'createdAt',
-			key: 'createdAt',
-			render: (createdAt) => <span>{formatDay(createdAt)}</span>,
+			title: 'Email',
+			dataIndex: 'email',
+			key: 'email',
 		},
 		{
 			title: 'Note',
@@ -131,8 +133,10 @@ const ListMembers = () => {
 					<span>
 						{role === 0 ? (
 							<Tag color='green'>Admin</Tag>
-						) : (
+						) : role === 1 ? (
 							<Tag color='blue'>Seller</Tag>
+						) : (
+							<Tag color='purple'>Customer</Tag>
 						)}
 					</span>
 				)
@@ -219,6 +223,7 @@ const ListMembers = () => {
 				columns={columns}
 				dataSource={dataSource}
 				rowKey='_id'
+				bordered
 				scroll={{ x: '100%' }}
 			/>
 		</>

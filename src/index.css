@@ -1,4 +1,6 @@
 @import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 
 
 a, a:hover {
@@ -14,3 +16,51 @@ a, a:hover {
     margin: 0;
     padding: 0;
 }
+
+body {
+    font-family: 'Inter', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+.custom__card {
+    margin-bottom: 1rem;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 1rem;
+}
+
+.custom__card-header {
+    padding: 1rem;
+    background-color: #00aefd;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #fff;
+    text-transform: uppercase;
+
+
+    display: flex;
+    align-items: center;
+}
+
+.custom__card-header i {
+    font-size: 1.4rem;
+    color: #fff;
+
+    margin-right: 1rem;
+}
+
+.custom__card-body {
+    padding: 1rem;
+}
+
+
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 576px) {}
+
+@media screen and (max-width: 480px) {}

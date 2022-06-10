@@ -44,7 +44,7 @@ const AddKey = () => {
 
 			if (res.status === 200) {
 				showSuccessMessage('Add key success')
-				navigate('/list-keys')
+				navigate('/keys')
 			}
 		} catch (error) {
 			error.response.data.message &&

@@ -10,7 +10,7 @@ import { logout } from '~/redux/toolkits/authSlice'
 const DefaultLayout = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const { username, role } = useSelector((state) => state.auth)
+	const { role, username } = useSelector((state) => state.auth)
 
 	const handleLogout = async () => {
 		try {
@@ -69,7 +69,7 @@ const DefaultLayout = () => {
 								/>
 							</div>
 							<div className='d-block'>
-								<h2 className='h5 mb-3'>Hi, {username}</h2>
+								<h2 className='h5 mb-3'>Hi, {username.name}</h2>
 								<div
 									className='btn btn-secondary btn-sm d-inline-flex align-items-center'
 									onClick={handleLogout}
@@ -118,7 +118,7 @@ const DefaultLayout = () => {
 					<ul className='nav flex-column pt-3 pt-md-0'>
 						<li className='nav-item pb-5'>
 							<div className='nav-link d-flex align-items-center justify-content-center'>
-								<Link to='/dashboard'>
+								<Link to='/'>
 									<img
 										src={LightImage}
 										alt='logo'
@@ -164,7 +164,7 @@ const DefaultLayout = () => {
 
 						{/* recharge */}
 						<li className='nav-item'>
-							<Link to='/recharge' className='nav-link'>
+							<Link to='/topup' className='nav-link'>
 								<span className='sidebar-icon'>
 									<svg
 										className='icon icon-xs me-2'
@@ -232,7 +232,7 @@ const DefaultLayout = () => {
 								<span className='sidebar-text'>Contact</span>
 							</Link>
 						</li>
-						{role === 1 ? (
+						{role === 1 || role === 0 ? (
 							<>
 								{/* keys */}
 								<li className='nav-item'>
@@ -429,7 +429,7 @@ const DefaultLayout = () => {
 											/>
 											<div className='media-body ms-2 text-dark align-items-center d-none d-lg-block'>
 												<span className='mb-0 font-small fw-bold text-gray-900'>
-													{username}
+													{username.name}
 												</span>
 											</div>
 										</div>

@@ -3,11 +3,18 @@ const currencyComma = (number) => {
 }
 
 const formatDay = (day) => {
-	const year = day.split('-')[0]
-	const month = day.split('-')[1]
-	const date = day.split('-')[2].split('T')[0]
+	// switch GMT +7
+	const date = new Date(day)
+	date.setHours(date.getHours() + 7)
 
-	return `${date}/${month}/${year}`
+	const year = date.getFullYear()
+	const month = date.getMonth() + 1
+	const dateDay = date.getDate()
+
+	const hour = date.getHours()
+	const minute = date.getMinutes()
+
+	return `${dateDay}/${month}/${year} ${hour}:${minute}`
 }
 
 const createKey = (number = 20) => {

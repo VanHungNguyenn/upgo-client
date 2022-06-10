@@ -6,7 +6,7 @@ import AddKey from '~/pages/AddKey'
 import AddMember from '~/pages/AddMember'
 
 import Profile from '~/pages/Profile'
-import Recharge from '~/pages/Recharge'
+import Topup from '~/pages/Topup'
 import Manage from '~/pages/Manage'
 import History from '~/pages/History'
 import Shop from '~/pages/Shop'
@@ -24,8 +24,8 @@ const privateRoutes = [
 		roles: ['admin', 'user', 'seller'],
 	},
 	{
-		path: '/recharge',
-		main: <Recharge />,
+		path: '/topup',
+		main: <Topup />,
 		roles: ['admin', 'user', 'seller'],
 	},
 	{

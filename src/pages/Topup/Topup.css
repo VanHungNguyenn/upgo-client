@@ -1,0 +1,112 @@
+.recharge {
+    display: flex;
+    flex-direction: column;
+}
+
+.recharge__info {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.recharge__info-item {
+    width: calc(50% - 0.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+}
+
+.recharge__info-item__image {
+    width: 15rem;
+    height: 5rem;
+
+    margin-bottom: 2rem;
+}
+
+.recharge__info-item__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    max-width: 22rem;
+}
+
+.recharge__info-item__content-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 1rem;
+    width: 8rem;
+}
+
+.recharge__info-item__content-value {
+    font-size: 1rem;
+    color: #af7217;
+    font-weight: 600;
+}
+
+
+
+.recharge__tutorial-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.recharge__tutorial-content-item {
+    position: relative;
+    padding-left: 1.5rem;
+    line-height: 2;
+    font-size: 1rem;
+}
+
+.recharge__tutorial-content-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: #ffa400;
+}
+
+.recharge__tutorial-content-item:nth-child(6n + 1)::before {
+    background-color: #00aefd;
+}
+
+.recharge__tutorial-content-item:nth-child(6n + 2)::before {
+    background-color: #ff7870;
+}
+
+.recharge__tutorial-content-item:nth-child(6n + 3)::before {
+    background-color: #9c2261;
+}
+
+.recharge__tutorial-content-item:nth-child(6n + 4)::before {
+    background-color: #2fb63c;
+}
+
+.recharge__tutorial-content-item:nth-child(6n + 5)::before {
+    background-color: #f00;
+}
+
+.recharge__tutorial-content-item:nth-child(6n + 6)::before {
+    background-color: #ffa400;
+}
+
+
+@media screen and (max-width: 768px) {
+    .recharge__info-item {
+        width: 100%;
+    }
+}
