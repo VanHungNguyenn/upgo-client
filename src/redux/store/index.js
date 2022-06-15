@@ -1,19 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import authSlice from '../toolkits/authSlice'
-import keySlice from '../toolkits/keySlice'
-import memberSlice from '../toolkits/memberSlice'
-import historyRechargeSlice from '../toolkits/historyRechargeSlice'
-import productSlice from '../toolkits/productSlice'
-import softwareUserSlice from '../toolkits/softwareUserSlice'
+import authSlice from '~/redux/toolkits/authSlice'
+import topupHistorySlice from '~/redux/toolkits/topupHistorySlice'
+import historyTransactionSlice from '~/redux/toolkits/historyTransactionSlice'
+import historyMomoSlice from '~/redux/toolkits/historyMomoSlice'
+import historyBankSlice from '~/redux/toolkits/historyBankSlice'
 
 export const store = configureStore({
 	reducer: {
 		auth: authSlice,
-		key: keySlice,
-		member: memberSlice,
-		historyRecharge: historyRechargeSlice,
-		products: productSlice,
-		softwareUser: softwareUserSlice,
+		topupHistory: topupHistorySlice,
+		historyTransaction: historyTransactionSlice,
+		historyMomo: historyMomoSlice,
+		historyBank: historyBankSlice,
 	},
 })

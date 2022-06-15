@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from 'react'
 import axios from 'axios'
-import { getHistoryRecharge } from '~/redux/toolkits/historyRechargeSlice'
+import { getTopupHistory } from '~/redux/toolkits/topupHistorySlice'
 import { currencyComma, formatDay } from '~/utils'
 import { useDispatch, useSelector } from 'react-redux'
 import { Table } from 'antd'
@@ -21,7 +21,7 @@ const columns = [
 		title: 'Amount',
 		dataIndex: 'amount',
 		key: 'amount',
-		render: (amount) => <span>{currencyComma(amount)} VND</span>,
+		render: (amount) => <span>{currencyComma(amount)}</span>,
 		sorter: (a, b) => a.amount - b.amount,
 	},
 	{
@@ -32,9 +32,9 @@ const columns = [
 	},
 ]
 
-const History = () => {
+const TopupHistory = () => {
 	const dispatch = useDispatch()
-	const historyRecharge = useSelector((state) => state.historyRecharge)
+	const topupHistory = useSelector((state) => state.topupHistory)
 
 	const fetchHistoryRecharge = useCallback(async () => {
 		try {
@@ -44,7 +44,7 @@ const History = () => {
 				},
 			})
 
-			dispatch(getHistoryRecharge(res.data.history))
+			dispatch(getTopupHistory(res.data.history))
 		} catch (error) {
 			console.log(error.message)
 		}
@@ -58,7 +58,7 @@ const History = () => {
 		<>
 			<Table
 				columns={columns}
-				dataSource={historyRecharge}
+				dataSource={topupHistory}
 				bordered
 				rowKey={(record) => record._id}
 			/>
@@ -66,4 +66,4 @@ const History = () => {
 	)
 }
 
-export default History
+export default TopupHistory

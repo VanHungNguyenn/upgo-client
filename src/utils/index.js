@@ -1,5 +1,5 @@
 const currencyComma = (number) => {
-	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' VND'
 }
 
 const formatDay = (day) => {
@@ -42,4 +42,12 @@ const formatDayWithForm = (day) => {
 	return `${year}-${month}-${date}`
 }
 
-export { currencyComma, formatDay, createKey, formatDayWithForm }
+const subString = (str, len = 50) => {
+	if (str.length > len) {
+		return str.substring(0, len) + '...'
+	}
+
+	return str
+}
+
+export { currencyComma, formatDay, createKey, formatDayWithForm, subString }

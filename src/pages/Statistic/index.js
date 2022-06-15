@@ -100,7 +100,7 @@ const Statistic = () => {
 											Total Price
 										</h2>
 										<h3 className='mb-1'>
-											{currencyComma(totalPrice)} VND
+											{currencyComma(totalPrice)}
 										</h3>
 									</div>
 								</div>
@@ -110,7 +110,7 @@ const Statistic = () => {
 											Total Price
 										</h2>
 										<h3 className='fw-extrabold mb-2'>
-											{currencyComma(totalPrice)} VND
+											{currencyComma(totalPrice)}
 										</h3>
 									</div>
 									{/* <small className='d-flex align-items-center text-gray-500'>

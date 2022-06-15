@@ -1,16 +1,15 @@
 import Dashboard from '~/pages/Dashboard'
 import Statistic from '~/pages/Statistic'
-import ListKeys from '~/pages/ListKeys'
-import ListMembers from '~/pages/ListMembers'
-import AddKey from '~/pages/AddKey'
-import AddMember from '~/pages/AddMember'
+import ManageSoftware from '~/pages/ManageSoftware'
+import TopupHistory from '~/pages/TopupHistory'
+import SoftwareSubcription from '~/pages/SoftwareSubcription'
+import ManageTopup from '~/pages/ManageTopup'
 
 import Profile from '~/pages/Profile'
 import Topup from '~/pages/Topup'
-import Manage from '~/pages/Manage'
-import History from '~/pages/History'
 import Shop from '~/pages/Shop'
 import Contact from '~/pages/Contact'
+import ManageMember from '~/pages/ManageMember'
 
 const privateRoutes = [
 	{
@@ -19,28 +18,29 @@ const privateRoutes = [
 		roles: ['admin', 'user', 'seller'],
 	},
 	{
-		path: '/profile',
-		main: <Profile />,
+		path: '/shop',
+		main: <Shop />,
 		roles: ['admin', 'user', 'seller'],
 	},
+
 	{
 		path: '/topup',
 		main: <Topup />,
 		roles: ['admin', 'user', 'seller'],
 	},
 	{
-		path: '/manage',
-		main: <Manage />,
+		path: '/topup-history',
+		main: <TopupHistory />,
 		roles: ['admin', 'user', 'seller'],
 	},
 	{
-		path: '/history',
-		main: <History />,
+		path: '/software-subcription',
+		main: <SoftwareSubcription />,
 		roles: ['admin', 'user', 'seller'],
 	},
 	{
-		path: '/shop',
-		main: <Shop />,
+		path: '/profile',
+		main: <Profile />,
 		roles: ['admin', 'user', 'seller'],
 	},
 	{
@@ -49,23 +49,18 @@ const privateRoutes = [
 		roles: ['admin', 'user', 'seller'],
 	},
 	{
-		path: '/keys',
-		main: <ListKeys />,
-		roles: ['admin', 'seller'],
-	},
-	{
-		path: '/add-key',
-		main: <AddKey />,
+		path: '/softwares',
+		main: <ManageSoftware />,
 		roles: ['admin', 'seller'],
 	},
 	{
 		path: '/members',
-		main: <ListMembers />,
+		main: <ManageMember />,
 		roles: ['admin'],
 	},
 	{
-		path: '/add-member',
-		main: <AddMember />,
+		path: '/manage-topup',
+		main: <ManageTopup />,
 		roles: ['admin'],
 	},
 	{
