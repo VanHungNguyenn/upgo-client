@@ -57,8 +57,8 @@ const columns = [
 ]
 
 const Manage = () => {
-	const id_user = useSelector((state) => state.auth?.username)
-	console.log({ id_user })
+	const userId = useSelector((state) => state.auth?.username)
+	console.log({ userId })
 
 	return (
 		<div className='manage'>

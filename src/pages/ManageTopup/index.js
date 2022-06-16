@@ -8,6 +8,11 @@ const { TabPane } = Tabs
 const ManageTopup = () => {
 	return (
 		<>
+			<div className='d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4'>
+				<div className='d-block mb-4 mb-md-0'>
+					<h2 className='h4'>Manage Topup History</h2>
+				</div>
+			</div>
 			<Tabs defaultActiveKey='1' type='card'>
 				<TabPane tab='History Transaction' key='1'>
 					<HistoryTransaction />

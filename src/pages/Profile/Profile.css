@@ -1,0 +1,126 @@
+.profile__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+}
+
+.profile__header-infor {
+	display: flex;
+	align-items: center;
+}
+
+.profile__header-infor-avatar {
+	margin-right: 1.5rem;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.profile__header-infor-avatar img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.profile__header-infor-name {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.profile__header-infor-role {
+	font-size: 1.2rem;
+	font-weight: 300;
+	color: #8c8c8c;
+}
+
+.profile__header-parameters {
+	display: flex;
+	align-items: center;
+}
+
+.profile__header-parameters-item {
+	margin-right: 3rem;
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+}
+
+.profile__header-parameters-item-value {
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.profile__header-parameters-item-name {
+	font-size: 1rem;
+	font-weight: 300;
+	color: #8c8c8c;
+}
+
+.profile__header-parameters-item:last-child {
+	margin-right: 0;
+}
+
+.profile__body-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+}
+
+.profile__body-header-title {
+	margin-bottom: 0;
+}
+
+.profile__body-header-buttons {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.profile__body-header-button i {
+	margin-right: 0.5rem;
+}
+
+.profile__body-body {
+	display: flex;
+	flex-direction: column;
+}
+
+.profile__body-body-item {
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+}
+
+.profile__body-body-item-name {
+	font-size: 1.2rem;
+	font-weight: 300;
+	color: #8c8c8c;
+	margin-right: 1rem;
+	text-transform: uppercase;
+	width: 7rem;
+}
+
+.profile__body-body-item-value {
+	font-size: 1.2rem;
+	font-weight: 300;
+	color: #8c8c8c;
+}
+
+@media screen and (max-width: 768px) {
+	.profile__header, .profile__body-header {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.profile__header-infor, .profile__body-header-title {
+		margin-bottom: 1rem;
+	}
+
+	.profile__body-body-item-name, .profile__body-body-item-value {
+		font-size: 1rem;
+	}
+}

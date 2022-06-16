@@ -1,20 +1,19 @@
 import React from 'react'
-import TableShop from '~/components/TableShop'
 
 const Shop = () => {
 	return (
-		<div className='shop'>
-			<div className='custom__card'>
-				<div className='custom__card-header'>
-					{/* fontawesome shop */}
-					<i className='fas fa-shopping-cart'></i>
-					Auto shop
+		<>
+			<div className='d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4'>
+				<div className='d-block mb-4 mb-md-0'>
+					<h2 className='h4'>Manage Topup History</h2>
 				</div>
-				<div className='custom__card-body'></div>
 			</div>
-
-			<TableShop />
-		</div>
+			<div className='shop'>
+				<div className='custom__card'>
+					<div className='custom__card-body'></div>
+				</div>
+			</div>
+		</>
 	)
 }
 

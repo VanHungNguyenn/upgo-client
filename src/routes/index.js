@@ -1,6 +1,6 @@
 import Dashboard from '~/pages/Dashboard'
 import Statistic from '~/pages/Statistic'
-import ManageSoftware from '~/pages/ManageSoftware'
+import ManageShop from '~/pages/ManageShop'
 import TopupHistory from '~/pages/TopupHistory'
 import SoftwareSubcription from '~/pages/SoftwareSubcription'
 import ManageTopup from '~/pages/ManageTopup'
@@ -50,7 +50,7 @@ const privateRoutes = [
 	},
 	{
 		path: '/softwares',
-		main: <ManageSoftware />,
+		main: <ManageShop />,
 		roles: ['admin', 'seller'],
 	},
 	{

@@ -197,8 +197,8 @@ const ManageMember = () => {
 	const columns = [
 		{
 			title: '#',
-			dataIndex: 'id_user',
-			key: 'id_user',
+			dataIndex: 'userId',
+			key: 'userId',
 		},
 		{
 			title: 'Name',
