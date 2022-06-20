@@ -17,8 +17,6 @@ const HistoryMomo = () => {
 				},
 			})
 
-			console.log(res.data.historyMomo)
-
 			dispatch(getAllHistoryMomo(res.data.historyMomo))
 		} catch (error) {
 			console.log(error.message)

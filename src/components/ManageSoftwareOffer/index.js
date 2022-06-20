@@ -16,6 +16,7 @@ const init = {
 	discountValue: null,
 	note: '',
 	_id: null,
+	value: null,
 }
 
 const ManageSoftwareOffer = () => {
@@ -31,6 +32,7 @@ const ManageSoftwareOffer = () => {
 		discountValue,
 		note,
 		_id,
+		value,
 	} = valuesForm
 
 	const [visibleAddModal, setVisibleAddModal] = useState(false)
@@ -78,6 +80,11 @@ const ManageSoftwareOffer = () => {
 			render: (price) => {
 				return currencyComma(price)
 			},
+		},
+		{
+			title: 'Value',
+			dataIndex: 'value',
+			key: 'value',
 		},
 		{
 			title: 'Original Price',
@@ -203,6 +210,7 @@ const ManageSoftwareOffer = () => {
 					originalPrice,
 					discountValue,
 					note,
+					value,
 				},
 				{
 					headers: {
@@ -234,6 +242,7 @@ const ManageSoftwareOffer = () => {
 					discountValue: valuesForm.discountValue,
 					note: valuesForm.note,
 					softwareId: valuesForm.softwareId,
+					value: valuesForm.value,
 				},
 				{
 					headers: {
@@ -358,6 +367,12 @@ const ManageSoftwareOffer = () => {
 						placeholder='Original Price (no required)'
 					/>
 					<Input
+						name='value'
+						value={value}
+						onChange={handleChangeInput}
+						placeholder='Value'
+					/>
+					<Input
 						name='discountValue'
 						value={discountValue}
 						onChange={handleChangeInput}
@@ -430,6 +445,12 @@ const ManageSoftwareOffer = () => {
 						value={originalPrice}
 						onChange={handleChangeInput}
 						placeholder='Original Price (no required)'
+					/>
+					<Input
+						name='value'
+						value={value}
+						onChange={handleChangeInput}
+						placeholder='Value'
 					/>
 					<Input
 						name='discountValue'

@@ -5,7 +5,7 @@ const currencyComma = (number) => {
 const formatDay = (day) => {
 	// switch GMT +7
 	const date = new Date(day)
-	date.setHours(date.getHours() + 7)
+	date.setHours(date.getHours())
 
 	const year = date.getFullYear()
 	const month = date.getMonth() + 1

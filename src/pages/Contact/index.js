@@ -10,12 +10,12 @@ import {
 const Contact = () => {
 	return (
 		<section className='contact'>
-			<div className='custom__card'>
-				<div className='custom__card-header'>
-					{/* font awesome contacts */}
-					<i className='fas fa-address-book'></i>
-					Contact
+			<div className='d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4'>
+				<div className='d-block mb-4 mb-md-0'>
+					<h2 className='h4'>Contact</h2>
 				</div>
+			</div>
+			<div className='custom__card'>
 				<div className='custom__card-body'>
 					<div className='contact__list'>
 						<a

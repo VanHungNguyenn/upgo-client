@@ -32,7 +32,6 @@ const ManageMember = () => {
 
 	const { _id, name, email, password, role, action, valuesChange, note } =
 		valuesForm
-	console.log({ _id, name, email, password, role, action, valuesChange })
 
 	const fetchMembers = useCallback(async () => {
 		try {
